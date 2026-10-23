@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Адрес — Архитектурное агентство недвижимости | г. Канаш</title>
+    <meta name="description" content="Безупречная недвижимость в Канаше. Прозрачные сделки, 100% юридический аудит, эскроу-безопасность. Рейтинг 5.0 на Яндекс Картах.">
+    
+    <!-- Google Fonts: Space Grotesk (акцентная геометрия), Inter (чистый гротеск), JetBrains Mono (терминальные данные) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0A0B0D',
+                            pure: '#000000',
+                            charcoal: '#14161A',
+                            surface: '#F8F9FA',
+                            canvas: '#FFFFFF',
+                            border: '#E5E7EB',
+                            borderLight: '#F0F2F5',
+                            cobalt: '#0052FF',
+                            cobaltDark: '#003ECC',
+                            muted: '#6B7280',
+                            slate: '#475569',
+                            emerald: '#059669'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Швейцарская архитектурная сетка */
+        .swiss-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        }
+        
+        .swiss-border {
+            border-color: #E5E7EB;
+        }
+
+        /* Индикатор живого статуса */
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .live-dot {
+            animation: pulse-dot 2s infinite;
+        }
+
+        /* Кастомный бегунок для слайдера */
+        input[type="range"] {
+            accent-color: #0052FF;
+        }
+    </style>
+</head>
+<body class="bg-brand-canvas text-brand-black font-sans antialiased selection:bg-brand-cobalt selection:text-white">
+
+    <!-- ВЕРХНЯЯ СТРОКА СТАТУСА (Швейцарский тикер) -->
+    <div class="border-b swiss-border bg-brand-surface text-[11px] font-mono tracking-wider text-brand-slate uppercase py-2 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 live-dot"></span>
+                <span>Канаш, ул. Железнодорожная, 20</span>
+                <span class="hidden md:inline text-gray-300">|</span>
+                <span class="hidden md:inline">Офис открыт до 19:00</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-brand-black font-medium">⭐ 5.0 Яндекс Карты (34 отзыва)</span>
+                <span class="text-gray-300">|</span>
+                <a href="tel:+79674735977" class="hover:text-brand-cobalt transition-colors font-semibold">+7 (967) 473-59-77</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ГЛАВНАЯ НАВИГАЦИЯ -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b swiss-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+            <!-- Логотип -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-brand-black text-white flex items-center justify-center font-display font-bold text-lg tracking-tighter group-hover:bg-brand-cobalt transition-colors">
+                    НА
+                </div>
+                <div>
+                    <span class="font-display font-bold text-xl tracking-tight block uppercase">Новый Адрес</span>
+                    <span class="text-[10px] font-mono text-brand-muted tracking-widest uppercase block -mt-1">Агентство недвижимости</span>
+                </div>
+            </a>
+
+            <!-- Меню -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-wider uppercase text-brand-slate">
+                <a href="#catalog" class="hover:text-brand-cobalt transition-colors"><span class="text-brand-cobalt">01.</span> Каталог</a>
+                <a href="#radar" class="hover:text-brand-cobalt transition-colors"><span class="text-brand-cobalt">02.</span> Радар рисков</a>
+                <a href="#ledger" class="hover:text-brand-cobalt transition-colors"><span class="text-brand-cobalt">03.</span> Реестр сделок</a>
+                <a href="#standards" class="hover:text-brand-cobalt transition-colors"><span class="text-brand-cobalt">04.</span> Стандарты</a>
+                <a href="#contacts" class="hover:text-brand-cobalt transition-colors"><span class="text-brand-cobalt">05.</span> Офис</a>
+            </nav>
+
+            <!-- CTA кнопка -->
+            <div class="flex items-center gap-4">
+                <a href="#contacts" class="hidden sm:inline-flex items-center gap-2 bg-brand-cobalt hover:bg-brand-cobaltDark text-white text-xs font-mono font-medium tracking-wider uppercase px-5 py-3 transition-colors">
+                    <span>Консультация</span>
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-brand-black hover:text-brand-cobalt">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t swiss-border bg-white px-6 py-4 space-y-3 font-mono text-xs uppercase shadow-lg">
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-cobalt">01. Каталог объектов</a>
+            <a href="#radar" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-cobalt">02. Радар ликвидности и рисков</a>
+            <a href="#ledger" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-cobalt">03. Журнал закрытых сделок</a>
+            <a href="#standards" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-cobalt">04. Стандарты безопасности</a>
+            <a href="#contacts" onclick="toggleMobileMenu()" class="block py-2 hover:text-brand-cobalt">05. Офис и брокеры</a>
+            <a href="#contacts" onclick="toggleMobileMenu()" class="block w-full text-center bg-brand-cobalt text-white py-3 mt-2 font-semibold">Запись на консультацию</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION: АСИММЕТРИЧНАЯ ШВЕЙЦАРСКАЯ СЕТКА -->
+    <section class="border-b swiss-border relative swiss-grid">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16 lg:py-24 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Левая колонка: Манифест и факты -->
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-2 bg-brand-surface border swiss-border px-3 py-1.5 text-[11px] font-mono uppercase text-brand-slate">
+                    <span class="w-1.5 h-1.5 bg-brand-cobalt"></span>
+                    <span>Сертифицированное агентство • Канаш</span>
+                </div>
+
+                <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-black uppercase leading-[1.08]">
+                    Честная недвижимость в цифрах и документах.
+                </h1>
+
+                <p class="text-base sm:text-lg text-brand-slate max-w-2xl leading-relaxed font-light">
+                    Защищаем капитал покупателей и продавцов в г. Канаш. Полный юридический аудит 48 пунктов, фиксированная комиссия без скрытых платежей и расчеты через защищенные эскроу-счета.
+                </p>
+
+                <!-- Кнопки быстрого перехода -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#catalog" class="inline-flex items-center gap-2 bg-brand-black hover:bg-brand-cobalt text-white text-xs font-mono font-medium tracking-wider uppercase px-6 py-3.5 transition-colors">
+                        <span>Смотреть каталог лотов</span>
+                        <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#radar" class="inline-flex items-center gap-2 bg-brand-surface hover:bg-white border swiss-border text-brand-black text-xs font-mono font-medium tracking-wider uppercase px-6 py-3.5 transition-colors">
+                        <span>Радар рисков и цен</span>
+                        <i data-lucide="compass" class="w-4 h-4 text-brand-cobalt"></i>
+                    </a>
+                </div>
+
+                <!-- Строгие ключевые метрики -->
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t swiss-border">
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-brand-black">5.0</div>
+                        <div class="text-[11px] font-mono uppercase text-brand-muted mt-0.5">Рейтинг Яндекс Карты</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-brand-black">0 ₽</div>
+                        <div class="text-[11px] font-mono uppercase text-brand-muted mt-0.5">Скрытых комиссий</div>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl sm:text-3xl font-bold tracking-tight text-brand-cobalt">18 дн.</div>
+                        <div class="text-[11px] font-mono uppercase text-brand-muted mt-0.5">Средний срок сделки</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка: Архитектурный фрейм с реальными биржевыми бейджами -->
+            <div class="lg:col-span-5 relative">
+                <div class="border swiss-border bg-white p-3 relative shadow-xl">
+                    <!-- Верхний ярлык -->
+                    <div class="flex justify-between items-center pb-2 mb-2 border-b swiss-border text-[10px] font-mono text-brand-muted uppercase">
+                        <span>ЛОТ #24-KA • КАНАШ</span>
+                        <span class="text-emerald-600 font-semibold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> ГОТОВ К СДЕЛКЕ
+                        </span>
+                    </div>
+
+                    <!-- Фотография объекта (Реалистичный фасад / квартира из базы Канаша на Авито) -->
+                    <div class="relative overflow-hidden aspect-[4/3] bg-gray-100">
+                        <img src="https://40.img.avito.st/image/1/1.Wh9--7a59vZoW0z2RrpZT2VZ9PDAUFT3cFr09MxO8vQ.Co3FB4KnpaKL1QqjE_SLweTzqcvc2mQO5hkwLopHDJM" 
+                             alt="Квартира в Канаше на ул. 30 лет Победы" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute bottom-3 left-3 bg-brand-black/90 text-white font-mono text-xs px-3 py-1 backdrop-blur-sm">
+                            ул. 30 лет Победы • 78 м²
+                        </div>
+                    </div>
+
+                    <!-- Детали лота -->
+                    <div class="pt-3 space-y-2">
+                        <div class="flex justify-between items-baseline">
+                            <span class="font-display font-bold text-xl tracking-tight text-brand-black">5 450 000 ₽</span>
+                            <span class="text-xs font-mono text-brand-muted">69 871 ₽ / м²</span>
+                        </div>
+                        <p class="text-xs text-brand-slate line-clamp-2">
+                            Кирпичный дом с индивидуальным отоплением (котёл BAXI). Светлая кухня-гостиная, раздельные комнаты, застеклённая лоджия, тихий зелёный двор.
+                        </p>
+                    </div>
+
+                    <!-- Парящий архитектурный бейдж доверия -->
+                    <div class="absolute -bottom-6 -left-6 bg-brand-black text-white p-4 border border-white/20 shadow-2xl hidden sm:block">
+                        <div class="text-[10px] font-mono text-gray-400 uppercase">Юридический статус</div>
+                        <div class="text-xs font-mono font-semibold flex items-center gap-2 mt-1">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>100% ЧИСТАЯ ИСТОРИЯ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОРИГИНАЛЬНЫЙ БЛОК: РАДАР ЛИКВИДНОСТИ И ОЦЕНКА РИСКОВ (УНИКАЛЬНЫЙ ИНСТРУМЕНТ) -->
+    <section id="radar" class="border-b swiss-border py-20 bg-brand-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Заголовок раздела -->
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-mono uppercase text-brand-cobalt tracking-widest mb-2">[02] // АНАЛИТИЧЕСКИЙ ТЕРМИНАЛ</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
+                    Радар ликвидности & Оценка недвижимости в Канаше
+                </h2>
+                <p class="text-sm sm:text-base text-brand-slate mt-3 font-light">
+                    Реальная математическая модель на основе анализа 240+ объявлений и закрытых сделок на Авито и Домклик в г. Канаш. Учитывает ключевые драйверы цены: индивидуальное отопление, материал стен, этажность и юридические нюансы.
+                </p>
+            </div>
+
+            <!-- Терминал -->
+            <div class="bg-white border swiss-border grid lg:grid-cols-12 shadow-sm">
+                
+                <!-- Левая часть: Ввод параметров -->
+                <div class="lg:col-span-7 p-6 sm:p-8 space-y-6 border-b lg:border-b-0 lg:border-r swiss-border">
+                    <div class="flex items-center justify-between border-b swiss-border pb-3">
+                        <span class="text-xs font-mono uppercase font-semibold text-brand-black">1. Параметры объекта</span>
+                        <span class="text-[11px] font-mono text-brand-muted">г. Канаш • Рынок 2026</span>
+                    </div>
+
+                    <!-- Выбор типа -->
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Формат недвижимости:</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <button class="radar-btn active p-2.5 border swiss-border text-xs font-mono text-center hover:border-brand-black transition-colors" data-type="1k" onclick="setRadarParam('rooms', '1k', this)">1-комн.</button>
+                            <button class="radar-btn p-2.5 border swiss-border text-xs font-mono text-center hover:border-brand-black transition-colors" data-type="2k" onclick="setRadarParam('rooms', '2k', this)">2-комн.</button>
+                            <button class="radar-btn p-2.5 border swiss-border text-xs font-mono text-center hover:border-brand-black transition-colors" data-type="3k" onclick="setRadarParam('rooms', '3k', this)">3-комн.</button>
+                            <button class="radar-btn p-2.5 border swiss-border text-xs font-mono text-center hover:border-brand-black transition-colors" data-type="house" onclick="setRadarParam('rooms', 'house', this)">Дом / ИЖС</button>
+                        </div>
+                    </div>
+
+                    <!-- Площадь (Слайдер) -->
+                    <div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <label class="text-xs font-mono uppercase text-brand-slate">Общая площадь:</label>
+                            <span id="areaDisplay" class="font-mono text-sm font-semibold text-brand-black">52 м²</span>
+                        </div>
+                        <input type="range" id="areaSlider" min="28" max="65" value="52" class="w-full h-1.5 bg-gray-200 appearance-none cursor-pointer" oninput="updateRadarCalc()">
+                    </div>
+
+                    <!-- Сетка из двух критических факторов: Отопление и Материал стен -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- Тип отопления -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Тип отопления:</label>
+                            <select id="radarHeating" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                                <option value="individual" selected>Индивидуальное (котёл в квартире) 🔥</option>
+                                <option value="central">Центральное отопление</option>
+                            </select>
+                        </div>
+
+                        <!-- Материал стен -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Материал стен / дом:</label>
+                            <select id="radarWall" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                                <option value="brick" selected>Кирпичный (капитальный)</option>
+                                <option value="panel">Панельный (типовой)</option>
+                                <option value="old">Старый фонд / шлакоблок</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Сетка: Ремонт и Этаж -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- Состояние ремонта -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Состояние ремонта:</label>
+                            <select id="radarRepair" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                                <option value="good" selected>Хороший / свежий ремонт</option>
+                                <option value="cosmetic">Жилое / чистая косметика</option>
+                                <option value="need">Требует ремонта (под чистовую)</option>
+                            </select>
+                        </div>
+
+                        <!-- Этажность -->
+                        <div>
+                            <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Этаж:</label>
+                            <select id="radarFloor" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                                <option value="mid" selected>Средний этаж (2–4 в 5-эт., 2–8 в 9-эт.)</option>
+                                <option value="first">Первый этаж</option>
+                                <option value="last">Последний этаж</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Район в Канаше -->
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Локация в Канаше:</label>
+                        <select id="radarDistrict" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                            <option value="center">Центр (пр-т Ленина, ул. Карла Маркса, ул. Пушкина)</option>
+                            <option value="pobedy">ул. 30 лет Победы / ул. Чкалова / Кооперативная</option>
+                            <option value="station">Привокзальный район (ул. Железнодорожная, Свободы)</option>
+                            <option value="east">Восточный / Западный микрорайоны / Б. Хмельницкого</option>
+                            <option value="suburb">Пригород (Шихраны, Большие Бикшихи, Малые Бикшихи)</option>
+                        </select>
+                    </div>
+
+                    <!-- Юридический статус (Критический фактор) -->
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-brand-slate mb-2">Юридический статус документов:</label>
+                        <select id="radarLegal" class="w-full bg-brand-surface border swiss-border px-3 py-2.5 text-xs font-mono outline-none focus:border-brand-cobalt" onchange="updateRadarCalc()">
+                            <option value="clean">1 взрослый собственник, без обременений (Чистая продажа)</option>
+                            <option value="mortgage">В залоге у банка (Непогашенная ипотека)</option>
+                            <option value="kids">Использован материнский капитал (Доли детей, Органы опеки)</option>
+                            <option value="heir">Вступление в наследство менее 3 лет</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Правая часть: Результат работы радара (Terminal Display) -->
+                <div class="lg:col-span-5 p-6 sm:p-8 bg-brand-black text-white flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between pb-3 border-b border-gray-800">
+                            <span class="text-xs font-mono uppercase text-gray-400">Сводная оценка рынка</span>
+                            <span class="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span> АНАЛИТИКА АВИТО
+                            </span>
+                        </div>
+
+                        <!-- Индекс ликвидности -->
+                        <div class="mt-6 mb-4">
+                            <div class="text-[11px] font-mono uppercase text-gray-400">Индекс ликвидности:</div>
+                            <div class="flex items-baseline gap-3 mt-1">
+                                <span id="radarScore" class="font-display text-4xl sm:text-5xl font-bold tracking-tight text-white">9.1</span>
+                                <span class="text-xs font-mono text-emerald-400 font-semibold" id="radarDemandLabel">Высокий спрос • Быстрая сделка</span>
+                            </div>
+                        </div>
+
+                        <!-- Сетка расчетов -->
+                        <div class="space-y-3 text-xs font-mono border-t border-gray-800 pt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Рыночная цена (вилка):</span>
+                                <span id="radarPrice" class="font-semibold text-brand-cobalt text-sm">3.9 – 4.3 млн ₽</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Средняя цена за 1 м²:</span>
+                                <span id="radarPriceM2" class="font-semibold text-white">76 800 ₽/м²</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Срок выхода на сделку:</span>
+                                <span id="radarDays" class="font-semibold text-white">14–22 дня</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-400">Юридический риск:</span>
+                                <span id="radarRisk" class="font-semibold text-emerald-400">Минимальный (0–5%)</span>
+                            </div>
+                        </div>
+
+                        <!-- Факторы, влияющие на цену (Живые теги) -->
+                        <div class="mt-5 pt-3 border-t border-gray-800">
+                            <div class="text-[10px] font-mono uppercase text-gray-500 mb-2">Драйверы цены объекта:</div>
+                            <div id="radarTags" class="flex flex-wrap gap-1.5 text-[10px] font-mono">
+                                <span class="bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5">+ Индивидуальное отопление</span>
+                                <span class="bg-gray-800 text-gray-300 px-2 py-0.5">+ Кирпичный дом</span>
+                                <span class="bg-gray-800 text-gray-300 px-2 py-0.5">+ Средний этаж</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-gray-900 border border-gray-800 text-[11px] font-mono text-gray-300 mt-4 leading-relaxed" id="radarAdvice">
+                            💡 Рекомендация: Высокая скорость продажи. Индивидуальное отопление в Канаше обеспечивает высокий интерес покупателей без скидок.
+                        </div>
+                    </div>
+
+                    <!-- Действие -->
+                    <div class="pt-6 mt-6 border-t border-gray-800">
+                        <button onclick="requestFullValuation()" class="w-full bg-brand-cobalt hover:bg-brand-cobaltDark text-white text-xs font-mono uppercase tracking-wider py-3.5 px-4 transition-colors flex items-center justify-center gap-2 font-semibold">
+                            <span>Обсудить оценку с брокером</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <div class="text-[10px] font-mono text-gray-500 text-center mt-2">
+                            Бесплатная консультация в офисе на Железнодорожной или по телефону
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- КАТАЛОГ ПРОВЕРЕННЫХ РЕЗИДЕНЦИЙ (THE CURATED PORTFOLIO) -->
+    <section id="catalog" class="border-b swiss-border py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="text-xs font-mono uppercase text-brand-cobalt tracking-widest mb-2">[01] // ПРОВЕРЕННЫЕ ОБЪЕКТЫ</div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
+                        Коллекция проверенных лотов в Канаше
+                    </h2>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono uppercase">
+                    <button class="catalog-filter active px-4 py-2 border swiss-border bg-brand-black text-white" onclick="filterCatalog('all', this)">Все (14)</button>
+                    <button class="catalog-filter px-4 py-2 border swiss-border bg-white text-brand-black hover:border-brand-black" onclick="filterCatalog('flats', this)">Квартиры</button>
+                    <button class="catalog-filter px-4 py-2 border swiss-border bg-white text-brand-black hover:border-brand-black" onclick="filterCatalog('houses', this)">Дома и ИЖС</button>
+                </div>
+            </div>
+
+            <!-- Сетка карточек -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Карточка 1: 2-комнатная квартира в центре -->
+                <div class="border swiss-border bg-white group flex flex-col justify-between hover:shadow-lg transition-all" data-category="flats">
+                    <div>
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                            <img src="https://60.img.avito.st/image/1/1.-MNL6ba6VCp9QJYvN7LatZ9KUiD_ylzo-kpWLOtMVg.yXpjTw-hU0dptchq4GpdhRe5CO-Ax3LTsnarywSL-a8" 
+                                 alt="Квартира на пр-те Ленина в Канаше с Авито" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-black text-white text-[10px] font-mono uppercase px-2.5 py-1">
+                                ЦЕНТР • ПР-Т ЛЕНИНА
+                            </span>
+                            <span class="absolute top-3 right-3 bg-white text-brand-black text-[10px] font-mono uppercase px-2 py-1 font-semibold">
+                                2-КОМН
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <span class="font-display font-bold text-2xl tracking-tight text-brand-black">3 850 000 ₽</span>
+                                <span class="text-xs font-mono text-brand-muted">54.0 м² • 71 296 ₽/м²</span>
+                            </div>
+                            <h3 class="font-semibold text-sm text-brand-black mb-2">Светлая 2-комн. квартира в кирпичном доме</h3>
+                            <p class="text-xs text-brand-slate line-clamp-2 font-light">
+                                Раздельный санузел, пластиковые стеклопакеты, застеклённый балкон. Тихий зелёный двор, школа №3 и парк в пешей доступности.
+                            </p>
+                            <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t swiss-border text-[11px] font-mono text-brand-slate">
+                                <div>• Этаж: 3 из 5 (кирпич)</div>
+                                <div>• Санузел: Раздельный</div>
+                                <div>• Ремонт: Аккуратный</div>
+                                <div>• Ипотека: от 10.9%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('2-комн. 54 м² (пр-т Ленина, 3 850 000 ₽)')" class="w-full bg-brand-surface hover:bg-brand-black hover:text-white border swiss-border text-brand-black text-xs font-mono uppercase tracking-wider py-2.5 transition-colors">
+                            Записаться на просмотр
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2: 3-комнатная квартира с индивидуальным отоплением -->
+                <div class="border swiss-border bg-white group flex flex-col justify-between hover:shadow-lg transition-all" data-category="flats">
+                    <div>
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                            <img src="https://60.img.avito.st/image/1/1.ycHvSra4zSlbaXOqVkHfxrPPZy5R4ec-2eZnKl_jbSJZ.p63x5UX2wL4-P5z-sieXiCoJR3k9BmBC7IaiDPI4jRU" 
+                                 alt="Квартира на 30 лет Победы с Авито" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-cobalt text-white text-[10px] font-mono uppercase px-2.5 py-1">
+                                ИНДИВИДУАЛЬНОЕ ОТОПЛЕНИЕ
+                            </span>
+                            <span class="absolute top-3 right-3 bg-white text-brand-black text-[10px] font-mono uppercase px-2 py-1 font-semibold">
+                                3-КОМН
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <span class="font-display font-bold text-2xl tracking-tight text-brand-black">5 450 000 ₽</span>
+                                <span class="text-xs font-mono text-brand-muted">78.0 м² • 69 871 ₽/м²</span>
+                            </div>
+                            <h3 class="font-semibold text-sm text-brand-black mb-2">3-комн. квартира в новом кирпичном доме</h3>
+                            <p class="text-xs text-brand-slate line-clamp-2 font-light">
+                                Свой двухконтурный газовый котёл — коммунальные платежи в 2 раза ниже. Просторная кухня 12 м², раздельные комнаты, кладовая.
+                            </p>
+                            <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t swiss-border text-[11px] font-mono text-brand-slate">
+                                <div>• Этаж: 4 из 9 (кирпич)</div>
+                                <div>• Отопление: Индивидуальное BAXI</div>
+                                <div>• Кухня: 12.2 м²</div>
+                                <div>• Юр. аудит: 100% чистая</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('3-комн. 78 м² (ул. 30 лет Победы, 5 450 000 ₽)')" class="w-full bg-brand-surface hover:bg-brand-black hover:text-white border swiss-border text-brand-black text-xs font-mono uppercase tracking-wider py-2.5 transition-colors">
+                            Записаться на просмотр
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Карточка 3: Загородный кирпичный дом в пригороде Канаша -->
+                <div class="border swiss-border bg-white group flex flex-col justify-between hover:shadow-lg transition-all" data-category="houses">
+                    <div>
+                        <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                            <img src="https://80.img.avito.st/image/1/1.-2baA7aAV4_Mo_WOoHi_EryiVYtotFOPaNM2i2gAVi1voFOVzKP1jmw.ZhJUmB3pTCXSpuaeD4V7j7k_S9hwA2ONN0Hlo3CsTlc" 
+                                 alt="Дом в Канаше с Авито" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-black text-white text-[10px] font-mono uppercase px-2.5 py-1">
+                                Б. БИКШИХИ • 5 МИН ДО ГОРОДА
+                            </span>
+                            <span class="absolute top-3 right-3 bg-white text-brand-black text-[10px] font-mono uppercase px-2 py-1 font-semibold">
+                                ДОМ С БАНЕЙ
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <span class="font-display font-bold text-2xl tracking-tight text-brand-black">4 650 000 ₽</span>
+                                <span class="text-xs font-mono text-brand-muted">110 м² • 10 сот.</span>
+                            </div>
+                            <h3 class="font-semibold text-sm text-brand-black mb-2">Добротный кирпичный дом с участком и баней</h3>
+                            <p class="text-xs text-brand-slate line-clamp-2 font-light">
+                                Керамзитобетон + облицовочный кирпич. Магистральный газ, скважина, септик, баня на дровах, гараж. Асфальтированный подъезд.
+                            </p>
+                            <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t swiss-border text-[11px] font-mono text-brand-slate">
+                                <div>• Участок: 10 соток ИЖС</div>
+                                <div>• Газ / Свет: Подключены</div>
+                                <div>• Постройки: Баня, сарай, гараж</div>
+                                <div>• Ипотека: Подходит под сельскую 3%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openBookingModal('Дом с участком 110 м² (Большие Бикшихи, 4 650 000 ₽)')" class="w-full bg-brand-surface hover:bg-brand-black hover:text-white border swiss-border text-brand-black text-xs font-mono uppercase tracking-wider py-2.5 transition-colors">
+                            Записаться на просмотр
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ОРИГИНАЛЬНЫЙ БЛОК 2: ОТКРЫТЫЙ РЕЕСТР ЗАКРЫТЫХ СДЕЛОК (TRANSPARENT TRANSACTION LEDGER) -->
+    <section id="ledger" class="border-b swiss-border py-20 bg-brand-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="max-w-3xl mb-10">
+                <div class="text-xs font-mono uppercase text-brand-cobalt tracking-widest mb-2">[03] // ЖУРНАЛ ТРАНЗАКЦИЙ</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
+                    Открытый реестр недавних сделок
+                </h2>
+                <p class="text-sm text-brand-slate mt-2 font-light">
+                    Полная прозрачность. Мы не скрываем реальные цены и сроки. Вот факты по сделкам, закрытым нашими брокерами в Канаше за последние месяцы.
+                </p>
+            </div>
+
+            <!-- Архитектурная таблица -->
+            <div class="overflow-x-auto border swiss-border bg-white shadow-sm">
+                <table class="w-full text-left text-xs font-mono">
+                    <thead class="bg-brand-surface border-b swiss-border text-brand-muted uppercase text-[10px]">
+                        <tr>
+                            <th class="py-3 px-4">Локация / Адрес</th>
+                            <th class="py-3 px-4">Формат</th>
+                            <th class="py-3 px-4">Цена старта</th>
+                            <th class="py-3 px-4">Финальная сумма</th>
+                            <th class="py-3 px-4">Срок продажи</th>
+                            <th class="py-3 px-4">Безопасность</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y swiss-border">
+                        <tr class="hover:bg-brand-surface/60 transition-colors">
+                            <td class="py-3.5 px-4 font-semibold text-brand-black">г. Канаш, ул. Железнодорожная, 75</td>
+                            <td class="py-3.5 px-4 text-brand-slate">2-комн. (52 м²)</td>
+                            <td class="py-3.5 px-4 text-brand-muted">3 550 000 ₽</td>
+                            <td class="py-3.5 px-4 font-semibold text-brand-cobalt">3 450 000 ₽</td>
+                            <td class="py-3.5 px-4 text-emerald-600 font-semibold">14 дней</td>
+                            <td class="py-3.5 px-4 text-brand-slate">Эскроу ВТБ</td>
+                        </tr>
+                        <tr class="hover:bg-brand-surface/60 transition-colors">
+                            <td class="py-3.5 px-4 font-semibold text-brand-black">г. Канаш, проспект Ленина, 34</td>
+                            <td class="py-3.5 px-4 text-brand-slate">1-комн. (38 м²)</td>
+                            <td class="py-3.5 px-4 text-brand-muted">3 200 000 ₽</td>
+                            <td class="py-3.5 px-4 font-semibold text-brand-cobalt">3 150 000 ₽</td>
+                            <td class="py-3.5 px-4 text-emerald-600 font-semibold">9 дней</td>
+                            <td class="py-3.5 px-4 text-brand-slate">Сбер Домклик</td>
+                        </tr>
+                        <tr class="hover:bg-brand-surface/60 transition-colors">
+                            <td class="py-3.5 px-4 font-semibold text-brand-black">г. Канаш, ул. Машиностроителей, 27</td>
+                            <td class="py-3.5 px-4 text-brand-slate">3-комн. (76 м²)</td>
+                            <td class="py-3.5 px-4 text-brand-muted">4 900 000 ₽</td>
+                            <td class="py-3.5 px-4 font-semibold text-brand-cobalt">4 750 000 ₽</td>
+                            <td class="py-3.5 px-4 text-emerald-600 font-semibold">22 дня</td>
+                            <td class="py-3.5 px-4 text-brand-slate">Военная ипотека</td>
+                        </tr>
+                        <tr class="hover:bg-brand-surface/60 transition-colors">
+                            <td class="py-3.5 px-4 font-semibold text-brand-black">г. Канаш, ул. Чкалова, 10</td>
+                            <td class="py-3.5 px-4 text-brand-slate">Коттедж (120 м²)</td>
+                            <td class="py-3.5 px-4 text-brand-muted">5 350 000 ₽</td>
+                            <td class="py-3.5 px-4 font-semibold text-brand-cobalt">5 200 000 ₽</td>
+                            <td class="py-3.5 px-4 text-emerald-600 font-semibold">27 дней</td>
+                            <td class="py-3.5 px-4 text-brand-slate">Сельская ипотека 3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 flex flex-wrap justify-between items-center text-xs font-mono text-brand-slate">
+                <span>* Все объекты прошли аудит на чистоту истории и отсутствие судебных претензий.</span>
+                <span class="text-brand-cobalt font-semibold">Средний срок реализации по портфелю: 18 дней</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- СТАНДАРТЫ БЕЗОПАСНОСТИ: МАТРИЦА СРАВНЕНИЯ -->
+    <section id="standards" class="border-b swiss-border py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            <div class="max-w-3xl mb-12">
+                <div class="text-xs font-mono uppercase text-brand-cobalt tracking-widest mb-2">[04] // СТАНДАРТ КАЧЕСТВА</div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-brand-black">
+                    Сравнение стандартов работы
+                </h2>
+                <p class="text-sm text-brand-slate mt-2 font-light">
+                    Почему клиенты доверяют продажу и покупку «Новому Адресу» вместо хаотичных объявлений на досках.
+                </p>
+            </div>
+
+            <!-- Матрица -->
+            <div class="border swiss-border grid md:grid-cols-2 shadow-sm">
+                <!-- Обычный подход -->
+                <div class="p-6 sm:p-8 bg-brand-surface/40 border-b md:border-b-0 md:border-r swiss-border space-y-6">
+                    <div class="flex items-center gap-2 text-xs font-mono uppercase text-brand-muted">
+                        <span class="w-2 h-2 bg-red-400 rounded-full"></span>
+                        <span>Случайный частный маклер / Объявления</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-mono text-brand-slate">
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <div><strong>Оценка наобум:</strong> Завышают цену, чтобы взять в работу, а затем объект «висит» по 8 месяцев без звонков.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <div><strong>Фото со смартфона:</strong> Темные смазанные кадры, отталкивающие 80% платежеспособных покупателей.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <div><strong>Формальная проверка:</strong> Ограничиваются выпиской из ЕГРН. Не проверяют скрытых наследников, долги и опеку.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-red-500 font-bold">✕</span>
+                            <div><strong>Расплывчатая комиссия:</strong> Скрытые накрутки на цену продавца, торг за ваш счет.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Стандарт Новый Адрес -->
+                <div class="p-6 sm:p-8 bg-white space-y-6">
+                    <div class="flex items-center gap-2 text-xs font-mono uppercase text-brand-cobalt font-semibold">
+                        <span class="w-2 h-2 bg-brand-cobalt rounded-full"></span>
+                        <span>Стандарт «Новый Адрес» (Канаш)</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs font-mono text-brand-black">
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <div><strong>Математическая оценка:</strong> Анализ 240+ закрытых сделок и вывод на рынок по справедливой максимальной цене.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <div><strong>Архитектурный маркетинг:</strong> Профессиональный стейджинг, точные 2D-планировки и охват целевых покупателей.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <div><strong>Юридический аудит 48 пунктов:</strong> Проверка дееспособности, архивных прописок, банкротства и материнского капитала.</div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-600 font-bold">✓</span>
+                            <div><strong>100% прозрачный договор:</strong> Фиксированная стоимость услуг без скрытых процентов. Эскроу-безопасность.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ И ОФИС В КАНАШЕ -->
+    <section id="contacts" class="py-20 bg-brand-black text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Офис и координаты -->
+            <div class="lg:col-span-6 space-y-8">
+                <div>
+                    <div class="text-xs font-mono uppercase text-brand-cobalt tracking-widest mb-2">[05] // ПРЯМАЯ СВЯЗЬ</div>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">
+                        Офис в центре г. Канаш
+                    </h2>
+                    <p class="text-sm text-gray-300 mt-3 font-light leading-relaxed">
+                        Приходите на личную консультацию за чашкой кофе. Разберем вашу ситуацию с недвижимостью, оценим документы и предложим понятную стратегию.
+                    </p>
+                </div>
+
+                <div class="space-y-4 text-xs font-mono border-t border-gray-800 pt-6">
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-brand-cobalt flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <span class="text-gray-400 block text-[10px] uppercase">Адрес офиса:</span>
+                            <span class="text-white text-sm font-semibold">Чувашская Республика, г. Канаш, ул. Железнодорожная, д. 20</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-cobalt flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <span class="text-gray-400 block text-[10px] uppercase">Телефоны брокеров:</span>
+                            <a href="tel:+79674735977" class="text-white text-sm font-semibold hover:text-brand-cobalt block">+7 (967) 473-59-77</a>
+                            <a href="tel:+79278401022" class="text-gray-400 text-xs hover:text-white block">+7 (927) 840-10-22</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-cobalt flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <span class="text-gray-400 block text-[10px] uppercase">График приёма:</span>
+                            <span class="text-white">Пн — Пт: 09:00 – 19:00 • Сб: 10:00 – 16:00 (по записи)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Быстрые ссылки мессенджеров -->
+                <div class="pt-2 flex flex-wrap gap-3">
+                    <a href="https://wa.me/79674735977?text=Здравствуйте!%20Интересует%20консультация%20по%20недвижимости" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-mono uppercase px-4 py-2.5 transition-colors">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>WhatsApp чат</span>
+                    </a>
+                    <a href="https://t.me/+79674735977" target="_blank" class="inline-flex items-center gap-2 bg-[#229ED9] hover:bg-[#1E88BE] text-white text-xs font-mono uppercase px-4 py-2.5 transition-colors">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="lg:col-span-6 bg-brand-charcoal p-6 sm:p-8 border border-gray-800">
+                <div class="text-xs font-mono uppercase text-gray-400 mb-1">ЭКСПРЕСС-ЗАЯВКА</div>
+                <h3 class="font-display text-xl font-bold uppercase tracking-tight text-white mb-6">
+                    Запись на конфиденциальную консультацию
+                </h3>
+
+                <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Ваше имя:</label>
+                        <input type="text" id="formName" required placeholder="Например, Алексей" class="w-full bg-gray-900 border border-gray-800 text-white text-xs font-mono px-3 py-2.5 outline-none focus:border-brand-cobalt">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Номер телефона:</label>
+                        <input type="tel" id="formPhone" required placeholder="+7 (___) ___-__-__" class="w-full bg-gray-900 border border-gray-800 text-white text-xs font-mono px-3 py-2.5 outline-none focus:border-brand-cobalt">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Ваша цель:</label>
+                        <select id="formGoal" class="w-full bg-gray-900 border border-gray-800 text-white text-xs font-mono px-3 py-2.5 outline-none focus:border-brand-cobalt">
+                            <option value="sell">Продать квартиру / дом по максимальной цене</option>
+                            <option value="buy">Подобрать недвижимость для покупки</option>
+                            <option value="audit">Проверить юридическую чистоту объекта</option>
+                            <option value="mortgage">Одобрить выгодную ипотеку</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-cobalt hover:bg-brand-cobaltDark text-white text-xs font-mono uppercase tracking-wider py-3.5 px-4 transition-colors font-semibold flex items-center justify-center gap-2 mt-4">
+                        <span>Забронировать время</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+
+                    <div id="formSuccess" class="hidden p-3 bg-emerald-950 border border-emerald-800 text-emerald-300 text-xs font-mono text-center">
+                        ✓ Заявка принята. Брокер свяжется с вами в течение 10 минут.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer class="border-t swiss-border bg-white text-brand-slate py-12 text-xs font-mono">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <span class="font-display font-bold text-brand-black text-base uppercase">Новый Адрес</span>
+                <span class="text-gray-300">|</span>
+                <span>г. Канаш • ИНН 211200000000</span>
+            </div>
+            <div class="text-center sm:text-right text-[11px] text-brand-muted">
+                © 2026 Агентство недвижимости «Новый Адрес». Все права защищены.<br>
+                Информация на сайте носит ознакомительный характер и не является публичной офертой.
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО БРОНИРОВАНИЯ ПРОСМОТРА -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border swiss-border max-w-md w-full p-6 sm:p-8 space-y-4 shadow-2xl relative">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-brand-muted hover:text-brand-black">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-[11px] font-mono uppercase text-brand-cobalt">[ ЗАКРЫТЫЙ ПОКАЗ ]</div>
+            <h3 class="font-display text-xl font-bold uppercase tracking-tight text-brand-black">
+                Запись на просмотр объекта
+            </h3>
+            <p id="modalObjectTitle" class="text-xs font-mono text-brand-slate bg-brand-surface p-2 border swiss-border">
+                Объект не выбран
+            </p>
+            <div class="space-y-3 pt-2">
+                <div>
+                    <label class="block text-[11px] font-mono uppercase text-brand-slate mb-1">Имя:</label>
+                    <input type="text" id="modalName" placeholder="Иван" class="w-full bg-brand-surface border swiss-border px-3 py-2 text-xs font-mono outline-none focus:border-brand-cobalt">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-mono uppercase text-brand-slate mb-1">Телефон:</label>
+                    <input type="tel" id="modalPhone" placeholder="+7 (999) 000-00-00" class="w-full bg-brand-surface border swiss-border px-3 py-2 text-xs font-mono outline-none focus:border-brand-cobalt">
+                </div>
+                <button onclick="submitModalBooking()" class="w-full bg-brand-black hover:bg-brand-cobalt text-white text-xs font-mono uppercase tracking-wider py-3 transition-colors font-semibold">
+                    Подтвердить просмотр
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЛОГИКА ИНТЕРАКТИВА (Vanilla JS) -->
+    <script>
+        // Инициализация иконок
+        lucide.createIcons();
+
+        // Данные радара ликвидности (рыночная модель г. Канаш)
+        const radarState = {
+            rooms: '1k',
+            area: 34,
+            heating: 'individual',
+            wall: 'brick',
+            repair: 'good',
+            floor: 'mid',
+            district: 'center',
+            legal: 'clean'
+        };
+
+        // Диапазоны площадей под реальные форматы жилья в Канаше
+        const roomAreaConfig = {
+            '1k': { min: 28, max: 45, default: 34 },
+            '2k': { min: 42, max: 68, default: 52 },
+            '3k': { min: 56, max: 96, default: 74 },
+            'house': { min: 50, max: 220, default: 110 }
+        };
+
+        function setRadarParam(param, value, btn) {
+            radarState[param] = value;
+            document.querySelectorAll('.radar-btn').forEach(b => b.classList.remove('bg-brand-black', 'text-white'));
+            btn.classList.add('bg-brand-black', 'text-white');
+
+            // Подстраиваем слайдер площади под выбранный формат
+            if (param === 'rooms' && roomAreaConfig[value]) {
+                const cfg = roomAreaConfig[value];
+                const slider = document.getElementById('areaSlider');
+                slider.min = cfg.min;
+                slider.max = cfg.max;
+                slider.value = cfg.default;
+            }
+
+            updateRadarCalc();
+        }
+
+        function updateRadarCalc() {
+            const area = parseInt(document.getElementById('areaSlider').value);
+            document.getElementById('areaDisplay').innerText = area + ' м²';
+            radarState.area = area;
+
+            // Считывание значений
+            radarState.heating = document.getElementById('radarHeating').value;
+            radarState.wall = document.getElementById('radarWall').value;
+            radarState.repair = document.getElementById('radarRepair').value;
+            radarState.floor = document.getElementById('radarFloor').value;
+            radarState.district = document.getElementById('radarDistrict').value;
+            radarState.legal = document.getElementById('radarLegal').value;
+
+            // 1. Базовая цена за м² по районам Канаша (база сделок 2026)
+            let basePriceM2 = 74000;
+            let daysMin = 14;
+            let daysMax = 24;
+            let score = 8.5;
+
+            if (radarState.district === 'center') {
+                basePriceM2 = 80000;
+                score += 0.5;
+            } else if (radarState.district === 'pobedy') {
+                basePriceM2 = 76000;
+                score += 0.4;
+            } else if (radarState.district === 'station') {
+                basePriceM2 = 68000;
+                daysMin += 2;
+                daysMax += 4;
+            } else if (radarState.district === 'east') {
+                basePriceM2 = 63000;
+                daysMin += 4;
+                daysMax += 8;
+                score -= 0.2;
+            } else if (radarState.district === 'suburb') {
+                basePriceM2 = 52000;
+                daysMin += 10;
+                daysMax += 18;
+                score -= 0.6;
+            }
+
+            // Массив динамических тегов драйверов цены
+            const tags = [];
+
+            // 2. Влияние отопления (Ключевой фактор для Канаша!)
+            if (radarState.heating === 'individual') {
+                basePriceM2 *= 1.15; // +15% за поквартирный котел
+                score += 0.7;
+                daysMin -= 4;
+                daysMax -= 5;
+                tags.push('<span class="bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5">+ Индивидуальное отопление (+15%)</span>');
+            } else {
+                tags.push('<span class="bg-gray-800 text-gray-400 px-2 py-0.5">Центральное отопление</span>');
+            }
+
+            // 3. Материал дома
+            if (radarState.wall === 'brick') {
+                basePriceM2 *= 1.06;
+                score += 0.4;
+                tags.push('<span class="bg-gray-800 text-gray-300 px-2 py-0.5">+ Кирпичный дом</span>');
+            } else if (radarState.wall === 'old') {
+                basePriceM2 *= 0.88;
+                score -= 0.6;
+                daysMin += 6;
+                daysMax += 12;
+                tags.push('<span class="bg-yellow-950 text-yellow-400 border border-yellow-800 px-2 py-0.5">- Старый фонд</span>');
+            } else {
+                tags.push('<span class="bg-gray-800 text-gray-400 px-2 py-0.5">Панель</span>');
+            }
+
+            // 4. Ремонт
+            if (radarState.repair === 'good') {
+                basePriceM2 *= 1.09;
+                score += 0.5;
+                daysMin -= 3;
+                daysMax -= 4;
+                tags.push('<span class="bg-gray-800 text-gray-300 px-2 py-0.5">+ Готовый ремонт</span>');
+            } else if (radarState.repair === 'need') {
+                basePriceM2 *= 0.88;
+                score -= 0.7;
+                daysMin += 8;
+                daysMax += 14;
+                tags.push('<span class="bg-red-950 text-red-300 border border-red-800 px-2 py-0.5">- Требуется ремонт (-12%)</span>');
+            }
+
+            // 5. Этаж
+            if (radarState.floor === 'mid') {
+                score += 0.3;
+                tags.push('<span class="bg-gray-800 text-gray-300 px-2 py-0.5">+ Средний этаж</span>');
+            } else if (radarState.floor === 'first') {
+                basePriceM2 *= 0.95;
+                score -= 0.4;
+                tags.push('<span class="bg-gray-800 text-gray-400 px-2 py-0.5">1-й этаж (-5%)</span>');
+            } else if (radarState.floor === 'last') {
+                basePriceM2 *= 0.96;
+                score -= 0.2;
+                tags.push('<span class="bg-gray-800 text-gray-400 px-2 py-0.5">Последний этаж</span>');
+            }
+
+            // 6. Формат комнат
+            if (radarState.rooms === '1k') {
+                score += 0.4;
+                daysMin -= 3;
+                daysMax -= 4;
+            } else if (radarState.rooms === 'house') {
+                score -= 0.5;
+                daysMin += 12;
+                daysMax += 22;
+            }
+
+            // 7. Юридический статус
+            let riskText = 'Минимальный (0–5%)';
+            let riskColor = 'text-emerald-400';
+            let advice = '💡 Рекомендация: Высокая скорость продажи. Объект ликвиден на рынке Канаша, рекомендуется выставлять по верхней границе рынка.';
+
+            if (radarState.legal === 'mortgage') {
+                score -= 0.4;
+                daysMin += 5;
+                daysMax += 7;
+                riskText = 'Умеренный • Потребуется снятие залога банка';
+                riskColor = 'text-yellow-400';
+                advice = '💡 Рекомендация: Потребуется согласование погашения остатка ипотеки в день сделки. Брокер «Нового Адреса» подготовит безопасный трехсторонний расчет.';
+            } else if (radarState.legal === 'kids') {
+                score -= 0.9;
+                daysMin += 14;
+                daysMax += 20;
+                riskText = 'Повышенный • Разрешение органов опеки г. Канаш';
+                riskColor = 'text-orange-400';
+                advice = '⚠️ Рекомендация: Требуется получение приказа опеки Канаша и синхронная покупка альтернативного жилья. Срок выхода на сделку увеличивается на 2-3 недели.';
+            } else if (radarState.legal === 'heir') {
+                score -= 0.7;
+                daysMin += 7;
+                daysMax += 12;
+                riskText = 'Контроль рисков • Наследство менее 3 лет';
+                riskColor = 'text-yellow-400';
+                advice = '💡 Рекомендация: Обязательный архивный аудит правопреемников для предоставления письменной гарантии юридической чистоты покупателю.';
+            }
+
+            // Ограничения индекса спроса
+            score = Math.min(9.8, Math.max(5.1, score));
+            let demandLabel = 'Высокий спрос • Быстрая сделка';
+            let demandClass = 'text-emerald-400';
+            if (score < 7.0) {
+                demandLabel = 'Умеренный спрос • Нужна правильная упаковка';
+                demandClass = 'text-yellow-400';
+            } else if (score < 6.0) {
+                demandLabel = 'Низкий темп продаж • Сложный объект';
+                demandClass = 'text-orange-400';
+            }
+
+            // Финальный расчет цены
+            const roundedPriceM2 = Math.round(basePriceM2);
+            const calculatedTotal = area * roundedPriceM2;
+            const priceMin = (calculatedTotal * 0.96 / 1000000).toFixed(2);
+            const priceMax = (calculatedTotal * 1.04 / 1000000).toFixed(2);
+
+            // Обновление интерфейса
+            document.getElementById('radarScore').innerText = score.toFixed(1);
+            const demandEl = document.getElementById('radarDemandLabel');
+            demandEl.innerText = demandLabel;
+            demandEl.className = 'text-xs font-mono font-semibold ' + demandClass;
+
+            document.getElementById('radarPrice').innerText = `${priceMin} – ${priceMax} млн ₽`;
+            document.getElementById('radarPriceM2').innerText = `${roundedPriceM2.toLocaleString('ru-RU')} ₽/м²`;
+            document.getElementById('radarDays').innerText = `${Math.max(7, daysMin)}–${daysMax} дней`;
+
+            const riskEl = document.getElementById('radarRisk');
+            riskEl.innerText = riskText;
+            riskEl.className = 'font-semibold ' + riskColor;
+
+            document.getElementById('radarTags').innerHTML = tags.join(' ');
+            document.getElementById('radarAdvice').innerText = advice;
+        }
+
+        function requestFullValuation() {
+            const area = document.getElementById('areaSlider').value;
+            const district = document.getElementById('radarDistrict').selectedOptions[0].text;
+            const goalField = document.getElementById('formGoal');
+            goalField.value = 'sell';
+            
+            document.getElementById('contacts').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('formName').focus();
+        }
+
+        // Фильтрация каталога
+        function filterCatalog(category, btn) {
+            document.querySelectorAll('.catalog-filter').forEach(b => {
+                b.classList.remove('bg-brand-black', 'text-white');
+                b.classList.add('bg-white', 'text-brand-black');
+            });
+            btn.classList.add('bg-brand-black', 'text-white');
+            btn.classList.remove('bg-white', 'text-brand-black');
+
+            const cards = document.querySelectorAll('#catalog [data-category]');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Модальное окно просмотра
+        function openBookingModal(objectTitle) {
+            document.getElementById('modalObjectTitle').innerText = objectTitle;
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function submitModalBooking() {
+            const name = document.getElementById('modalName').value.trim();
+            const phone = document.getElementById('modalPhone').value.trim();
+            if (!name || !phone) {
+                alert('Пожалуйста, укажите имя и телефон для согласования времени просмотра.');
+                return;
+            }
+            alert(`Спасибо, ${name}! Заявка на закрытый показ объекта отправлена брокеру. Мы перезвоним по номеру ${phone}.`);
+            closeBookingModal();
+        }
+
+        // Обработка контактной формы
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const success = document.getElementById('formSuccess');
+            success.classList.remove('hidden');
+            setTimeout(() => {
+                e.target.reset();
+            }, 1000);
+        }
+
+        // Мобильное меню
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Инициализация первого расчета
+        document.addEventListener('DOMContentLoaded', () => {
+            updateRadarCalc();
+        });
+    </script>
+</body>
+</html>
